@@ -6,7 +6,7 @@ let extractedFields = {};
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     // Store the extracted fields
     if (message.action != 'getFields') {
-        extractedFields = message.fields;
+        extractedFields = message.tables;
         console.log("received a message to get extracted fields");
         console.log(message);
     }
