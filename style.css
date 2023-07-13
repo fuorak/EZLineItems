@@ -1,59 +1,40 @@
 /*popup.html*/
 
+.longForm {
+    width: 30%;
+}
+
 * {
     width: 100%;
     font-family: 'Comic Sans MS';
 }
 
-#planningTable {
-    width: 500px;
-    margin: 25px;
-    padding: 4px;
+td {
+    border: 1px solid black;
+    margin: 3px;
+    padding: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    white-space: nowrap;
 }
 
-
-.leftItem {
-    width: 40%;
-    display: inline-block;
-    text-align: end;
-    justify-content: center;
-    align-items: center;
+tr {
+    
 }
 
-.rightItem {
-    width: 60%;
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+table {
+    border-collapse: collapse;
 }
 
-.groupBox {
-    display: flex;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: rgba(222, 19, 4, .7);
-    color: ghostwhite;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-body {
-    margin: 25px;
+thead {
+    background-color: lightgray;
 }
 
 html {
-    background-color: dimgray;
+    background-color: lightslategray;
 }
 
-img {
-    width: 50%;
-    height: auto;
-    margin-right: 50px;
+.nowrap {
+    white-space: nowrap;
 }
 
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

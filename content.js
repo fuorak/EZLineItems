@@ -8,7 +8,6 @@ var pattern = /<a[^>]*>([^<]*)<\/a>/i;
 let iterator = 0;
 
 for (let i = 0; i < table.length; i++) {
-    console.log(table[i]);
 
     //only look at rows that arent the header row
     if (table[i].getAttribute('class') != "uir-machine-headerrow") {
@@ -60,7 +59,8 @@ for (let i = 0; i < table.length; i++) {
             ch3: "",
             ch4: "",
             ch5: "",
-            ch6: ""
+            ch6: "",
+            grossProfit: ""
         };
 
         for (let j = 0; j < rows.length; j++) {
@@ -717,6 +717,18 @@ for (let i = 0; i < table.length; i++) {
                     rowData.ch6 = rowData.ch6.replace("&nbsp;", "");
                 }
             }
+
+            if (rows[j].getAttribute("data-ns-tooltip") === "EST. GROSS PROFIT PERCENT") {
+                rowData.grossProfit = rows[j].innerHTML;
+
+                if (rowData.grossProfit.includes("\n")) {
+                    rowData.grossProfit = rowData.grossProfit.replace("\n", "");
+                }
+
+                if (rowData.grossProfit.includes("&nbsp;")) {
+                    rowData.grossProfit = rowData.grossProfit.replace("&nbsp;", "");
+                }
+            }
         }
 
         //push the line to the extension
@@ -725,131 +737,9 @@ for (let i = 0; i < table.length; i++) {
 
     }
 }
-/*
-let frameQty = 0;
-let doorQty = 0;
-let salesOrder = "SO-NONE";
-let orderConfirmation = "THE FUTURE";
-let ezShipDate = "THE FUTURE";
-let programmingInitials = "T0";
-let doorInitials = "NONE";
-let orderNotes = "AHHH";
-
-
-for (let i = 0; i < divs.length; i++) {
-    //frame qty
-    if (divs[i].getAttribute('class') === "uir-field-wrapper" && divs[i].getAttribute('data-searchable-id') === "custom191custom191custbody_frameqty") {
-        const spans = divs[i].getElementsByTagName('span');
-
-        for (let j = 0; j < spans.length; j++) {
-            if (spans[j].getAttribute('class') === "uir-field inputreadonly") {
-                frameQty = spans[j].innerHTML;
-            }
-        }
-    }
-
-    //door qty
-    if (divs[i].getAttribute('class') === "uir-field-wrapper uir-inline-tag" && divs[i].getAttribute('data-searchable-id') === "custom191custom191custbody_doorquantity") {
-        const spans = divs[i].getElementsByTagName('span');
-
-        for (let j = 0; j < spans.length; j++) {
-            if (spans[j].getAttribute('class') === "uir-field inputreadonly") {
-                doorQty = spans[j].innerHTML;
-            }
-        }
-    }
-
-    //programming initials
-    if (divs[i].getAttribute('class') === "uir-field-wrapper" && divs[i].getAttribute('data-searchable-id') === "custom191custom191custbody_programmingneeded") {
-        const spans = divs[i].getElementsByTagName('span');
-
-        for (let j = 0; j < spans.length; j++) {
-            if (spans[j].getAttribute('class') === "uir-field inputreadonly") {
-                programmingInitials = spans[j].innerHTML;
-            }
-        }
-    }
-
-    //door initials
-    if (divs[i].getAttribute('class') === "uir-field-wrapper" && divs[i].getAttribute('data-searchable-id') === "custom191custom191custbody_nesting") {
-        const spans = divs[i].getElementsByTagName('span');
-
-        for (let j = 0; j < spans.length; j++) {
-            if (spans[j].getAttribute('class') === "uir-field inputreadonly") {
-                doorInitials = spans[j].innerHTML;
-            }
-        }
-    }
-
-    //Order confirmation
-    if (divs[i].getAttribute('class') === "uir-field-wrapper" && divs[i].getAttribute('data-searchable-id') === "shippingshippingcustbody_ezconceptorderconfirmation") {
-        const spans = divs[i].getElementsByTagName('span');
-
-        for (let j = 0; j < spans.length; j++) {
-            if (spans[j].getAttribute('class') === "uir-field inputreadonly") {
-                orderConfirmation = spans[j].innerHTML;
-            }
-        }
-    }
-
-    //Ez ship date
-    if (divs[i].getAttribute('class') === "uir-field-wrapper" && divs[i].getAttribute('data-searchable-id') === "shippingshippingcustbody_ezconceptshipdate1") {
-        const spans = divs[i].getElementsByTagName('span');
-
-        for (let j = 0; j < spans.length; j++) {
-            if (spans[j].getAttribute('class') === "uir-field inputreadonly") {
-                ezShipDate = spans[j].innerHTML;
-            }
-        }
-    }
-
-    //Order notes
-    if (divs[i].getAttribute('class') === "uir-field-wrapper uir-long-text" && divs[i].getAttribute('data-searchable-id') === "custom191custom191custbody_ordernotes") {
-        const spans = divs[i].getElementsByTagName('span');
-
-        for (let j = 0; j < spans.length; j++) {
-            if (spans[j].getAttribute('class') === "uir-field inputreadonly uir-resizable") {
-                orderNotes = spans[j].innerHTML;
-            }
-        }
-    }
-
-    //sales order
-    if (divs[i].getAttribute('class') === "uir-page-title-secondline") {
-        const spans = divs[i].getElementsByTagName('div');
-
-        for (let j = 0; j < spans.length; j++) {
-            if (spans[j].getAttribute('class') === "uir-record-id") {
-                salesOrder = spans[j].innerHTML;
-            }
-        }
-    }
-}
-
-
-const fields = {
-    salesOrder: salesOrder,
-    orderConfirmation: orderConfirmation,
-    ezShipDate: ezShipDate,
-    frameQty: frameQty,
-    doorQty: doorQty,
-    programmingInitials: programmingInitials,
-    doorInitials: doorInitials,
-    orderNotes: orderNotes,
-    // Add more fields as needed
-};
-
-*/
-
 
 // Send the extracted data to the background script
-chrome.runtime.sendMessage({ lines });
-
-/*
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.action === 'getFields') {
-        chrome.runtime.sendMessage({ fields });
-    }
-    console.log("sent message to background.js");
-});
-*/
+if (lines != null) {
+    console.log("Contents of 'lines' object: " + lines);
+    chrome.runtime.sendMessage({ lines });
+}
