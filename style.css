@@ -1,25 +1,35 @@
 /*popup.html*/
 
-.longForm {
-    width: 30%;
-}
-
 * {
     width: 100%;
     font-family: 'Comic Sans MS';
 }
 
-td {
+#lineTable td {
     border: 1px solid black;
-    margin: 3px;
-    padding: 3px;
+    margin: 0px;
+    padding: 1px;
     padding-left: 5px;
     padding-right: 5px;
     white-space: nowrap;
 }
 
-tr {
-    
+.leftItem {
+    width: 30%;
+    display: inline-block;
+    text-align: end;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.rightItem {
+    width: 60%;
+    display: inline-block;
+    text-align: start;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
 }
 
 table {
@@ -31,10 +41,13 @@ thead {
 }
 
 html {
-    background-color: lightslategray;
+    background-color: lightcoral;
 }
 
 .nowrap {
     white-space: nowrap;
 }
 
+#countingBox {
+    display: flex;
+}

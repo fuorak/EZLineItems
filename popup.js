@@ -21,6 +21,54 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
     let te527Count = 0;
     let te540Count = 0;
 
+    //variables for frame counts
+    let srcCount = 0;
+    let srdCount = 0;
+    let iscCount = 0;
+    let isdCount = 0;
+    let ezaCount = 0;
+    let ezcCount = 0;
+    let drcCount = 0;
+    let drdCount = 0;
+    let cavkitCount = 0;
+
+    //variables for prep counts
+    let tstrikeCount = 0;
+    let asaCount = 0;
+    let nohaCount = 0;
+    let dblt214Count = 0;
+    let dblt234Count = 0;
+    let dblt312Count = 0;
+    let elcCount = 0;
+    let hes8300Count = 0;
+    let rimStrikeCount = 0;
+    let ipivotCount = 0;
+    let eptCount = 0;
+
+    //variables for head prep counts
+    let lcn2030Count = 0;
+    let lcn3130Count = 0;
+    let abh1000Count = 0;
+    let abh1000rCount = 0;
+    let abh4000Count = 0;
+    let rixsonS1Count = 0;
+    let rixsonS2Count = 0;
+    let pivotCount = 0;
+    let rock100Count = 0;
+    let rock200Count = 0;
+    let rocyorkccCount = 0;
+    let dormaits96Count = 0;
+    let gj100Count = 0;
+    let gj400Count = 0;
+    let gj450Count = 0;
+    let cvrCount = 0;
+    let dps1Count = 0;
+    let dps34Count = 0;
+    let pls24Count = 0;
+    let surfacereinforcementCount = 0;
+    let m19Count = 0;
+    let r119Count = 0;
+
 
     // Loop through the data and update the table
 
@@ -65,6 +113,42 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
                         cell.innerHTML = currentRow.automatedDescription;
                     } else {
                         cell.innerHTML = currentRow.manualDescription;
+                    }
+
+                    if (currentRow.automatedDescription.includes("SRC")) {
+                        srcCount = srcCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("SRD")) {
+                        srdCount = srdCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("ISC")) {
+                        iscCount = iscCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("ISD")) {
+                        isdCount = isdCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("DRC")) {
+                        drcCount = drcCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("DRD")) {
+                        drdCount = drdCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("EZA")) {
+                        ezaCount = ezaCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("EZC")) {
+                        ezcCount = ezcCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("CavKit")) {
+                        cavkitCount = cavkitCount + parseInt(currentRow.qty);
                     }
                 }
                 /*
@@ -291,6 +375,174 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
 
                 if (j === 24) {
                     cell.innerHTML = currentRow.headPrep1;
+
+                    if (currentRow.headPrep1.includes("LCN 2030")) {
+                        if (currentRow.handing.includes("DD")) {
+                            lcn2030Count = lcn2030Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            lcn2030Count = lcn2030Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("LCN 3130")) {
+                        if (currentRow.handing.includes("DD")) {
+                            lcn3130Count = lcn3130Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            lcn3130Count = lcn3130Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("ABH 1000")) {
+                        if (currentRow.handing.includes("DD")) {
+                            abh1000Count = abh1000Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            abh1000Count = abh1000Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("ABH 1000R")) {
+                        if (currentRow.handing.includes("DD")) {
+                            abh1000rCount = abh1000rCount + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            abh1000rCount = abh1000rCount + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("ABH 4000")) {
+                        if (currentRow.handing.includes("DD")) {
+                            abh4000Count = abh4000Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            abh4000Count = abh4000Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("Rixson S1")) {
+                        if (currentRow.handing.includes("DD")) {
+                            rixsonS1Count = rixsonS1Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            rixsonS1Count = rixsonS1Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("Rixson S2")) {
+                        if (currentRow.handing.includes("DD")) {
+                            rixsonS2Count = rixsonS2Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            rixsonS2Count = rixsonS2Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("Rixson 180")) {
+                        if (currentRow.handing.includes("DD")) {
+                            pivotCount = pivotCount + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            pivotCount = pivotCount + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("Rockwood OH 100")) {
+                        if (currentRow.handing.includes("DD")) {
+                            rock100Count = rock100Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            rock100Count = rock100Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("Rockwood OH 200")) {
+                        if (currentRow.handing.includes("DD")) {
+                            rock200Count = rock200Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            rock200Count = rock200Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("RocYork Concealed Closer")) {
+                        if (currentRow.handing.includes("DD")) {
+                            rocyorkccCount = rocyorkccCount + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            rocyorkccCount = rocyorkccCount + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("Dorma ITS96")) {
+                        if (currentRow.handing.includes("DD")) {
+                            dormaits96Count = dormaits96Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            dormaits96Count = dormaits96Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("GJ 100")) {
+                        if (currentRow.handing.includes("DD")) {
+                            gj100Count = gj100Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            gj100Count = gj100Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("GJ 410")) {
+                        if (currentRow.handing.includes("DD")) {
+                            gj400Count = gj400Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            gj400Count = gj400Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("GJ 450")) {
+                        if (currentRow.handing.includes("DD")) {
+                            gj450Count = gj450Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            gj450Count = gj450Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("CVR")) {
+                        if (currentRow.handing.includes("DD")) {
+                            cvrCount = cvrCount + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            cvrCount = cvrCount + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("1\" Dia DPS")) {
+                        if (currentRow.handing.includes("DD")) {
+                            dps1Count = dps1Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            dps1Count = dps1Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("3/4\" Dia DPS")) {
+                        if (currentRow.handing.includes("DD")) {
+                            dps34Count = dps34Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            dps34Count = dps34Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("PLS-24")) {
+                        if (currentRow.handing.includes("DD")) {
+                            pls24Count = pls24Count + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            pls24Count = pls24Count + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("PA Closer")) {
+                        if (currentRow.handing.includes("DD")) {
+                            surfacereinforcementCount = surfacereinforcementCount + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            surfacereinforcementCount = surfacereinforcementCount + parseInt(currentRow.qty);
+                        }
+                    }
+
+                    if (currentRow.headPrep1.includes("Reinforcement")) {
+                        if (currentRow.handing.includes("DD")) {
+                            surfacereinforcementCount = surfacereinforcementCount + (parseInt(currentRow.qty) * 2);
+                        } else {
+                            surfacereinforcementCount = surfacereinforcementCount + parseInt(currentRow.qty);
+                        }
+                    }
                 }
 
                 if (j === 25) {
@@ -360,6 +612,38 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
             }
         }
     }
+    ry60CountBox.innerHTML = ry60Count;
+    ry80CountBox.innerHTML = ry80Count;
+    ry120CountBox.innerHTML = ry120Count;
+    soss216CountBox.innerHTML = soss216Count;
+    soss218CountBox.innerHTML = soss218Count;
+    soss418CountBox.innerHTML = soss418Count;
+    mortise4CountBox.innerHTML = mortise4Count;
+    mortise412CountBox.innerHTML = mortise412Count;
+    te340CountBox.innerHTML = te340Count;
+    te527CountBox.innerHTML = te527Count;
+    te540CountBox.innerHTML = te540Count;
+
+    srcCountBox.innerHTML = srcCount;
+    srdCountBox.innerHTML = srdCount;
+    iscCountBox.innerHTML = iscCount;
+    isdCountBox.innerHTML = isdCount;
+    ezaCountBox.innerHTML = ezaCount;
+    ezcCountBox.innerHTML = ezcCount;
+    drcCountBox.innerHTML = drcCount;
+    drdCountBox.innerHTML = drdCount;
+    cavkitCountBox.innerHTML = cavkitCount;
+
+    lcn2030CountBox.innerHTML = lcn2030Count;
+    lcn3130CountBox.innerHTML = lcn3130Count;
+    abh1000CountBox.innerHTML = abh1000Count;
+    abh1000rCountBox.innerHTML = abh1000rCount;
+    abh4000CountBox.innerHTML = abh4000Count;
+    rixsons1CountBox.innerHTML = rixsonS1Count;
+    rixsons2CountBox.innerHTML = rixsonS2Count;
+    pivotCountBox.innerHTML = pivotCount;
+    rockwoodoh100CountBox.innerHTML = rock100Count;
+    rockwoodoh200CountBox.innerHTML = rock200Count;
 
     console.log("RY60's : " + ry60Count);
     console.log("RY80's : " + ry80Count);
