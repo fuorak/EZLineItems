@@ -14,6 +14,7 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
     let ry120Count = 0;
     let soss216Count = 0;
     let soss218Count = 0;
+    let soss416Count = 0;
     let soss418Count = 0;
     let mortise4Count = 0;
     let mortise412Count = 0;
@@ -31,6 +32,7 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
     let drcCount = 0;
     let drdCount = 0;
     let cavkitCount = 0;
+    let fireCount = 0;
 
     //variables for prep counts
     let nohaCount = 0;
@@ -74,7 +76,7 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
             console.log(currentRow);
 
 
-            for (var j = 0; j < 41; j++) {
+            for (var j = 0; j < 38; j++) {
                 var cell = row.insertCell(j);
 
                 if (j === 0) {
@@ -102,7 +104,7 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
                 }
                 */
                 
-                if (j === 6) {
+                if (j === 5) {
                     if (currentRow.manualDescription == "") {
                         cell.innerHTML = currentRow.automatedDescription;
                     } else {
@@ -156,6 +158,10 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
                     if (currentRow.automatedDescription.includes("HES 8300")) {
                         hes8300Count = hes8300Count + parseInt(currentRow.qty);
                     }
+
+                    if (currentRow.fire.includes("90") || currentRow.fire.includes("20") || currentRow.fire.includes("30")) {
+                        fireCount = fireCount + parseInt(currentRow.qty);
+                    }
                 }
                 /*
                 if (j === 7) {
@@ -168,11 +174,11 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
                 }
                 */
 
-                if (j === 9) {
+                if (j === 6) {
                     cell.innerHTML = currentRow.tag;
                 }
 
-                if (j === 10) {
+                if (j === 7) {
                     cell.innerHTML = currentRow.qty;
                 }
 
@@ -195,51 +201,51 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
                 }
                 */
 
-                if (j === 11) {
+                if (j === 8) {
                     cell.innerHTML = currentRow.total;
                 }
 
-                if (j === 12) {
+                if (j === 9) {
                     cell.innerHTML = currentRow.wall;
                 }
 
-                if (j === 13) {
+                if (j === 10) {
                     cell.innerHTML = currentRow.width;
                 }
 
-                if (j === 14) {
+                if (j === 11) {
                     cell.innerHTML = currentRow.height;
                 }
 
-                if (j === 15) {
+                if (j === 12) {
                     cell.innerHTML = currentRow.fire;
                 }
 
-                if (j === 16) {
+                if (j === 13) {
                     cell.innerHTML = currentRow.openingType;
                 }
 
-                if (j === 17) {
+                if (j === 14) {
                     cell.innerHTML = currentRow.strike1;
                 }
 
-                if (j === 18) {
+                if (j === 15) {
                     cell.innerHTML = currentRow.strike1Loc;
                 }
 
-                if (j === 19) {
+                if (j === 16) {
                     cell.innerHTML = currentRow.strike2;
                 }
 
-                if (j === 20) {
+                if (j === 17) {
                     cell.innerHTML = currentRow.strike2Loc;
                 }
 
-                if (j === 21) {
+                if (j === 18) {
                     cell.innerHTML = currentRow.handing;
                 }
 
-                if (j === 22) {
+                if (j === 19) {
                     cell.innerHTML = currentRow.hingeType;
 
                     if (currentRow.hingeType.includes("RY60")) {
@@ -300,6 +306,18 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
                         hingeCount = hingeCount * currentRow.qty;
 
                         soss218Count = soss218Count + hingeCount;
+                    }
+
+                    if (currentRow.hingeType.includes("416")) {
+                        var hingeCount = parseInt(currentRow.hingeType.slice(-1));
+
+                        if (currentRow.handing.includes("DD")) {
+                            hingeCount = hingeCount * 2;
+                        }
+
+                        hingeCount = hingeCount * currentRow.qty;
+
+                        soss416Count = soss416Count + hingeCount;
                     }
 
                     if (currentRow.hingeType.includes("418")) {
@@ -375,11 +393,11 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
                     }
                 }
 
-                if (j === 23) {
+                if (j === 20) {
                     cell.innerHTML = currentRow.hingeLocation;
                 }
 
-                if (j === 24) {
+                if (j === 21) {
                     cell.innerHTML = currentRow.headPrep1;
 
                     if (currentRow.headPrep1.includes("LCN 2030")) {
@@ -551,67 +569,67 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
                     }
                 }
 
-                if (j === 25) {
+                if (j === 22) {
                     cell.innerHTML = currentRow.headOpeningDegree;
                 }
 
-                if (j === 26) {
+                if (j === 23) {
                     cell.innerHTML = currentRow.headPrep1Location;
                 }
 
-                if (j === 27) {
+                if (j === 24) {
                     cell.innerHTML = currentRow.prepOnlyActiveDD;
                 }
 
-                if (j === 28) {
+                if (j === 25) {
                     cell.innerHTML = currentRow.headPrep2;
                 }
 
-                if (j === 29) {
+                if (j === 26) {
                     cell.innerHTML = currentRow.headPrep2Location;
                 }
 
-                if (j === 30) {
+                if (j === 27) {
                     cell.innerHTML = currentRow.ept;
                 }
 
-                if (j === 31) {
+                if (j === 28) {
                     cell.innerHTML = currentRow.customEPT;
                 }
 
-                if (j === 32) {
+                if (j === 29) {
                     cell.innerHTML = currentRow.customEPTLoc;
                 }
 
-                if (j === 33) {
+                if (j === 30) {
                     cell.innerHTML = currentRow.unevenDoubleDoors;
                 }
 
-                if (j === 34) {
+                if (j === 31) {
                     cell.innerHTML = currentRow.intermediatePivot;
                 }
 
-                if (j === 35) {
+                if (j === 32) {
                     cell.innerHTML = currentRow.ch1;
                 }
 
-                if (j === 36) {
+                if (j === 33) {
                     cell.innerHTML = currentRow.ch2;
                 }
 
-                if (j === 37) {
+                if (j === 34) {
                     cell.innerHTML = currentRow.ch3;
                 }
 
-                if (j === 38) {
+                if (j === 35) {
                     cell.innerHTML = currentRow.ch4;
                 }
 
-                if (j === 39) {
+                if (j === 36) {
                     cell.innerHTML = currentRow.ch5;
                 }
 
-                if (j === 40) {
+                if (j === 37) {
                     cell.innerHTML = currentRow.ch6;
                 }
 
@@ -623,6 +641,7 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
     ry120CountBox.innerHTML = ry120Count;
     soss216CountBox.innerHTML = soss216Count;
     soss218CountBox.innerHTML = soss218Count;
+    soss416CountBox.innerHTML = soss416Count;
     soss418CountBox.innerHTML = soss418Count;
     mortise4CountBox.innerHTML = mortise4Count;
     mortise412CountBox.innerHTML = mortise412Count;
@@ -639,6 +658,7 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
     drcCountBox.innerHTML = drcCount;
     drdCountBox.innerHTML = drdCount;
     cavkitCountBox.innerHTML = cavkitCount;
+    fireCountBox.innerHTML = fireCount;
 
     lcn2030CountBox.innerHTML = lcn2030Count;
     lcn3130CountBox.innerHTML = lcn3130Count;
