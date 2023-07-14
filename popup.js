@@ -33,15 +33,9 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
     let cavkitCount = 0;
 
     //variables for prep counts
-    let tstrikeCount = 0;
-    let asaCount = 0;
     let nohaCount = 0;
-    let dblt214Count = 0;
-    let dblt234Count = 0;
-    let dblt312Count = 0;
     let elcCount = 0;
     let hes8300Count = 0;
-    let rimStrikeCount = 0;
     let ipivotCount = 0;
     let eptCount = 0;
 
@@ -149,6 +143,18 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
 
                     if (currentRow.automatedDescription.includes("CavKit")) {
                         cavkitCount = cavkitCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("NoHa")) {
+                        nohaCount = nohaCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("ELC")) {
+                        elcCount = elcCount + parseInt(currentRow.qty);
+                    }
+
+                    if (currentRow.automatedDescription.includes("HES 8300")) {
+                        hes8300Count = hes8300Count + parseInt(currentRow.qty);
                     }
                 }
                 /*
@@ -644,6 +650,20 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
     pivotCountBox.innerHTML = pivotCount;
     rockwoodoh100CountBox.innerHTML = rock100Count;
     rockwoodoh200CountBox.innerHTML = rock200Count;
+    rocyorkccCountBox.innerHTML = rocyorkccCount;
+    dormaits96CountBox.innerHTML = dormaits96Count;
+    gj100CountBox.innerHTML = gj100Count;
+    gj400CountBox.innerHTML = gj400Count;
+    gj450CountBox.innerHTML = gj450Count;
+    cvrCountBox.innerHTML = cvrCount;
+    dps1CountBox.innerHTML = dps1Count;
+    dps34CountBox.innerHTML = dps34Count;
+    pls24CountBox.innerHTML = pls24Count;
+    surfacereinforcementCountBox.innerHTML = surfacereinforcementCount;
+
+    nohaCountBox.innerHTML = nohaCount;
+    elcCountBox.innerHTML = elcCount;
+    hes8300CountBox.innerHTML = hes8300Count;
 
     console.log("RY60's : " + ry60Count);
     console.log("RY80's : " + ry80Count);
