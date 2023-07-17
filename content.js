@@ -7,6 +7,8 @@ const lines = [];
 var pattern = /<a[^>]*>([^<]*)<\/a>/i;
 let iterator = 0;
 
+console.log(table);
+
 for (let i = 0; i < table.length; i++) {
 
     //only look at rows that arent the header row

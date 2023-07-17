@@ -113,38 +113,83 @@ chrome.runtime.sendMessage({ action: 'getFields' }, function (response) {
 
                     if (currentRow.automatedDescription.includes("SRC")) {
                         srcCount = srcCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("SRD")) {
                         srdCount = srdCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("ISC")) {
                         iscCount = iscCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("ISD")) {
                         isdCount = isdCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("DRC")) {
                         drcCount = drcCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("DRD")) {
                         drdCount = drdCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("EZA")) {
                         ezaCount = ezaCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("EZC")) {
                         ezcCount = ezcCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("CavKit")) {
                         cavkitCount = cavkitCount + parseInt(currentRow.qty);
+
+                        if (parseInt(currentRow.qty) - 1 != (currentRow.tag.match(/,/g) || []).length) {
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>There was a mismatch of tags to quantity at line " + (i + 1) + "</p>";
+                            errorContainer.innerHTML = errorContainer.innerHTML + "<p>The quantity was " + (parseInt(currentRow.qty)) + " and the comma count was " + (currentRow.tag.match(/,/g) || []).length + "</p>";
+                        }
                     }
 
                     if (currentRow.automatedDescription.includes("NoHa")) {

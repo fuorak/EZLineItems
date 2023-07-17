@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Line Items",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "permissions": [
     "activeTab",
     "scripting"
@@ -18,7 +18,7 @@
   ],
   "content_scripts": [
     {
-      "matches": [ "https://3381659.app.netsuite.com/app/accounting/transactions/salesord.nl?id=*", "https://3381659.app.netsuite.com/app/accounting/transactions/estimate.nl?id=*"  ],
+      "matches": [ "https://3381659.app.netsuite.com/app/accounting/transactions/salesord.nl?id=*", "https://3381659.app.netsuite.com/app/accounting/transactions/estimate.nl?id=*", "https://3381659.app.netsuite.com/app/accounting/transactions/salesord.nl?whence=&id=*" ],
       "js": [ "content.js" ],
       "run_at": "document_idle"
     }

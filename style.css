@@ -84,3 +84,10 @@ h4 {
     background-color: lightcoral;
     border-radius: 25px;
 }
+
+#errorContainer {
+    width: 750px;
+    background-color: aliceblue;
+    border-radius: 25px;
+    text-align: center;
+}
